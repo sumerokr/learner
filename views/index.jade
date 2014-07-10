@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Index
+    ul
+        each item in jdata
+            li #{ item.name } - #{ item.age }
+    p
+        a(href='/create') create
