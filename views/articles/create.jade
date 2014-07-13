@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    h1 Create article
+    form(method="post")
+        table
+            tbody
+                tr
+                    th
+                        label(for="title") Title
+                    td
+                        input(type="text", id="title", name="title")
+                tr
+                    th
+                        label(for="body") Body
+                    td
+                        textarea(id="body", name="body")
+                tr
+                    th
+                        label(for="tags") Tags
+                    td
+                        input(type="text", id="tags", name="tags")
+                tr
+                    th
+                        label is Hidden
+                    td
+                        input(type="checkbox", id="isHidden", name="isHidden")
+                tr
+                    td(colspan="2")
+                        input(type="submit", value="Create article")

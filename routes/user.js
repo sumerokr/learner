@@ -14,12 +14,11 @@ router.get('/create', function (req, res) {
 });
 
 router.post('/create', function (req, res) {
-    var user = new User(req.body);
-    User.create(user, function(err, user) {
+    User.create(req.body, function(err, user) {
         if (err) return console.error(err);
         console.log('Created ' + user.name + ' user.');
         res.redirect('/user');
-    })
+    });
 });
 
 router.get('/man/:id', function (req, res) {
@@ -54,17 +53,14 @@ router.post('/update/:id', function (req, res) {
 //        res.redirect('/user');
 //    });
     User.findById(req.params.id, function(err, user) {
-        var _hm = user;
-        console.log(user);
+        var newUser = user;
         user.name = req.body.name;
         user.age = req.body.age;
         user.birthday = req.body.birthday;
         user.isMale = req.body.isMale;
         user.save(function (err, user, num) {
             if (err) {
-                console.log(_hm);
-                console.log(user);
-                res.render('update', { err: err, user: _hm });
+                res.render('update', { err: err, user: newUser });
                 return console.error(err);
             }
             console.log('Updated ' + user.name + ' user.');

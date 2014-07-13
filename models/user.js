@@ -23,10 +23,6 @@ var userSchema = new Schema({
     isMale: Boolean
 });
 
-userSchema.virtual('getBirthday').get(function () {
-    return this.name.first + ' ' + this.name.last;
-});
-
 function getBirthday (val) {
     var year;
     var month;
