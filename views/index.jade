@@ -4,6 +4,10 @@ block content
     h1 Index
     ul
         each item in jdata
-            li #{ item.name } - #{ item.age }
+            li
+                a(href='/user/man/#{ item.id }') #{ item.name } - #{ item.age }
+                span #{ item.birthday }
+                span #{ item.createdAt }
+                span #{ item.isMale }
     p
-        a(href='/create') create
+        a(href='/user/create') Create

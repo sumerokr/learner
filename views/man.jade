@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 #{ name }
+    p #{ age }
+    p
+        a(href='/user/update/#{ id }') Update
+        |  /
+        a(href='/user/delete/#{ id }') Delete

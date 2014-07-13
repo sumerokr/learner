@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Delete
+    form(method='post')
+        table
+            tbody
+                tr
+                    th Name
+                    td #{ name }
+                tr
+                    th Age
+                    td #{ age }
+                tr
+                    td(colspan='2')
+                        input(type='submit', value='Delete')

@@ -2,19 +2,32 @@ extends layout
 
 block content
     h1 Create
-    form(action='create', method='post')
+    form(method="post")
         table
             tbody
                 tr
                     th
-                        label(for='name') Name
+                        label(for="name") Name
                     td
-                        input(id='name', name='name')
+                        input(type="text", id="name", name="name")
                 tr
                     th
-                        label(for='age') Age
+                        label(for="age") Age
                     td
-                        input(id='age', name='age')
+                        input(type="number", id="age", name="age")
                 tr
-                    td(colspan='2')
-                        input(type='submit', value='Save')
+                    th
+                        label(for="birthday") Birthday
+                    td
+                        input(type="date", id="birthday", name="birthday")
+                tr
+                    th
+                        label is Male
+                    td
+                        input(type="radio", id="male", name="isMale", value="true")
+                        | Male
+                        input(type="radio", id="female", name="isMale", value="false")
+                        | Female
+                tr
+                    td(colspan="2")
+                        input(type="submit", value="Save")

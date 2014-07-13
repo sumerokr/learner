@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    h1 Update
+    if err
+        ul
+            each error in err.errors
+                li #{ error.message }
+    form(method='post')
+        table
+            tbody
+                tr
+                    th
+                        label(for="name") Name
+                    td
+                        input(type="text", id="name", name="name", value="#{ user.name }")
+                tr
+                    th
+                        label(for="age") Age
+                    td
+                        input(type="number", id="age", name="age", value="#{ user.age }")
+                tr
+                    th
+                        label(for="birthday") Birthday
+                    td
+                        input(type="date", id="birthday", name="birthday", value="#{ user.birthday }")
+                tr
+                    th
+                        label is Male
+                    td
+                        if user.isMale
+                            input(type="radio", id="male", name="isMale", value="true", checked)
+                            | Male
+                            input(type="radio", id="female", name="isMale", value="false")
+                            | Female
+                        else
+                            input(type="radio", id="male", name="isMale", value="true")
+                            | Male
+                            input(type="radio", id="female", name="isMale", value="false", checked)
+                            | Female
+                tr
+                    td(colspan='2')
+                        input(type='submit', value='Update')
