@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var articleSchema = new Schema({
+var categorySchema = new Schema({
     title: {
         type: String,
         match: [/.{1,}/, 'Заголовок не может быть менее 1 символа'],
@@ -17,23 +17,15 @@ var articleSchema = new Schema({
         default: Date.now,
         get: formatDate
     },
-    tags: {
-        type: [String],
-        set: setTags
-    },
     isHidden: {
         type: Boolean,
         default: false
     },
-    category: {
+    articles: [{
         type: Schema.Types.ObjectId,
-        ref: 'Category'
-    }
+        ref: 'Article'
+    }]
 });
-
-function setTags (val) {
-    return val.split(', ');
-}
 
 function formatDate (val) {
     var year;
@@ -52,4 +44,4 @@ function formatDate (val) {
     return year + '-' + month + '-' + day;
 }
 
-module.exports = mongoose.model('Article', articleSchema);
+module.exports = mongoose.model('Category', categorySchema);

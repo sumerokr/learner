@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1 Categories list
+    ul
+        each item in categories
+            li
+                h2
+                    a(href="/categories/post/#{ item.id }") #{ item.title }
+                    | /
+                    time #{ item.createdAt }
+    p
+        a(href="/categories/create") Create

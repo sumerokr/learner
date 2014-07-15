@@ -7,12 +7,12 @@ block content
             li
                 h2
                     a(href="/articles/post/#{ item.id }") #{ item.title }
-                    | 
+                    | .
                     small #{ item.createdAt }
                 p
                     each tag in item.tags
                         a(href="/articles/tag/#{ tag }") #{ tag }
-                        | 
+                        | .
 
     p
         a(href="/articles/create") Create

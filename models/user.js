@@ -14,7 +14,7 @@ var userSchema = new Schema({
     },
     birthday: {
         type: Date,
-        get: getBirthday
+        get: formatDate
     },
     createdAt: {
         type: Date,
@@ -23,7 +23,7 @@ var userSchema = new Schema({
     isMale: Boolean
 });
 
-function getBirthday (val) {
+function formatDate (val) {
     var year;
     var month;
     var day;

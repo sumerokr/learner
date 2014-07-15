@@ -25,6 +25,18 @@ block content
                         label is Hidden
                     td
                         input(type="checkbox", id="isHidden", name="isHidden")
+                if Object.keys(categories).length
+                    tr
+                        th
+                            label Categoty
+                        td
+                            select(id="category", name="category")
+                                option(value="0") Выберите категорию
+                                each item in categories
+                                    option(value="#{ item.id }") #{ item.title }
+                else
+                    tr
+                        td(colspan="2") There is no categories at all
                 tr
                     td(colspan="2")
                         input(type="submit", value="Create article")

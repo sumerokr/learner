@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Article = require('./../models/article');
+var Category = require('./../models/category');
 
 router.get('/', function (req, res) {
     res.redirect('/articles/list');
@@ -13,7 +14,9 @@ router.get('/list', function (req, res) {
 });
 
 router.get('/create', function (req, res) {
-    res.render('articles/create');
+    Category.find(function (err, categories) {
+        res.render('articles/create', { categories: categories });
+    });
 });
 
 router.post('/create', function (req, res) {
